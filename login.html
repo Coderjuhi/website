@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="webpage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+    <style>
+        span {
+            font-family: verdana, geneva, sans-serif;
+        }
+
+        body {
+            background-color: #205b4f;
+
+            font-family: "Roboto", sans-serif;
+        }
+
+        .signup-box {
+            width: 360px;
+            height: 620px;
+            margin: auto;
+            background-color: white;
+            border-radius: 3px;
+            box-shadow: 5px 5px 30px rgba(0,0,0,0.1);
+
+        }
+
+        .login-box {
+            margin-top: 10rem;
+            margin-left: auto;
+            margin-right: auto;
+            width: 360px;
+            height: 280px;
+            box-shadow: 5px 5px 30px rgba(0,0,0,0.1);
+
+            border-radius: 3px;
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+        form {
+            width: 300px;
+            margin-left: 20px;
+        }
+
+        form label {
+            display: flex;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 7px;
+            border: none;
+            border: 1px solid gray;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        input[type="button"] {
+            width: 320px;
+            height: 35px;
+            margin-top: 20px;
+            border: none;
+            background-color: #49c1a2;
+            color: white;
+            font-size: 18px;
+        }
+        input[type="button"]:hover {
+background-color: #205b4f;
+        }
+        p {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 15px;
+        }
+
+        .para-2 {
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            margin-top: -10px;
+        }
+
+        .para-2 a {
+            color: #49c1a2;
+        }
+    </style>
+    <div class="container">
+        <div class="heading">
+            <header>
+
+                <!-- <input type="checkbox" id="toggler">
+               <label for="toggler" class="fa fa-bars"></label> -->
+                <div class="headingcontent">
+                    <h2>BeautyGlow </h2>
+
+
+                </div>
+                <nav class="navbar">
+                    <a href="index.html">Home</a>
+                    <a href="Product.html">Products</a>
+                    <a href="about.html">About us</a>
+
+                    <a href="signup.html">Login</a>
+                    <a href="contact.html">Contact Us</a>
+
+
+                </nav>
+            </header>
+        </div>
+
+        <div class="login-box">
+            <h1>Login</h1>
+            <form>
+                <label>Email</label>
+                <input type="email" placeholder="" />
+                <label>Password</label>
+                <input type="password" placeholder="" />
+                <input type="button" value="Submit" />
+            </form>
+        </div>
+        <p class="para-2">
+            Not have an account? <a href="signup.html">Sign Up Here</a>
+        </p>
+    </div>
+    </body>
+
+</html>
