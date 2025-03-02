@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="webpage.css">
+</head>
+<style>
+/* Contact Section */
+.contact {
+    margin-top: 0;
+    position: relative;
+    padding: 2rem 1rem; /* Added padding for better spacing */
+    display: flex;
+    flex-direction: column; /* Default stacking for smaller screens */
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 52px;
+}
+
+.get {
+    background-color: #FFD899;
+    padding: 2rem;
+    max-width: 500px; /* Restrict width for smaller screens */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.get h1 {
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.get p {
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.form {
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input,
+textarea {
+    width: 100%; /* Full width for better responsiveness */
+    background-color: rgb(250, 246, 246);
+    padding: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Allow inputs to wrap */
+    gap: 1rem;
+}
+
+.row input {
+    flex: 1;
+    min-width: 150px; /* Ensure inputs don't shrink too much */
+}
+
+.send {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.send:hover {
+    background-color: #333433;
+}
+
+/* Footer Section */
+footer {
+    background-color: #f8f8f8;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.footer-company-box {
+    max-width: 300px; /* Limit width */
+    text-align: center;
+}
+
+.footer-company-box .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-social a {
+    color: #333;
+    margin: 0 5px;
+    font-size: 1.2rem;
+}
+
+.footer-link-box {
+    max-width: 200px;
+    text-align: center;
+}
+
+.footer-link-box strong {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-link-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link-box li {
+    margin: 0.5rem 0;
+}
+
+.footer-link-box a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.footer-link-box a:hover {
+    color: #000;
+}
+
+.footer-bottom {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .get, .form {
+        max-width: 90%; /* Adjust width for smaller devices */
+    }
+
+    .get h1 {
+        font-size: 1.8rem;
+    }
+
+    .get p {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    .send {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .footer-container {
+        flex-direction: column; /* Stack footer sections vertically */
+    }
+
+    .footer-company-box, .footer-link-box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .get h1 {
+        font-size: 1.5rem;
+    }
+
+    .get p {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    textarea {
+        font-size: 0.8rem;
+    }
+
+    .send {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .footer-link-box strong {
+        font-size: 1rem;
+    }
+
+    .footer-link-box ul {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 320px) {
+    .get h1 {
+        font-size: 1.2rem;
+    }
+
+    .get p {
+        font-size: 0.8rem;
+    }
+
+    .send {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+
+    .footer-link-box strong {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+}
+
+
+</style>
+
+<body>
+    <div class="container">
+
+        <div class="heading">
+            <header>
+
+                <!-- <input type="checkbox" id="toggler">
+               <label for="toggler" class="fa fa-bars"></label> -->
+                <div class="headingcontent">
+                    <h2>BeautyGlow </h2>
+
+
+                </div>
+                <!-- Hamburger Icon -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <i class="fa fa-bars"></i>
+            </label>
+                <nav class="navbar">
+                    <a href="index.html">Home</a>
+                    <a href="Product.html">Products</a>
+                    <a href="about.html">About us</a>
+
+                    <a href="signup.html">Login</a>
+                    <a href="Contact.html">Contact Us</a>
+
+
+                </nav>
+            </header>
+        </div>
+
+
+        <div class="contact">
+            <div class="contact-content">
+                <div class="get">
+                    <div class="get-content">
+                        <h1>Get in touch</h1>
+                        <p>We would love to hear from you!Whether you have quesions,feedback or need assitance,feel free 
+                            to reach out to us.
+                        </p>
+                        <div class="contact-info">123 Fifth Avenue,New Delhi</p>
+                            <p><i class="fas fa-envelope"></i> Email:BeautyGlow123@.com</p>
+                            <p><i class="fas fa-phone"></i> Phone: (103) 336-3490</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <form action="">
+                        <div class="row ">
+                            <div class="form-first">
+                                <input type="text" placeholder="First Name" required>
+                            </div>
+                            <div class="form-last">
+                                <input type="text" placeholder="Last Name" required><br><br>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email address..." required><br><br>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="" id="" rows="8" cols="60" placeholder=" Message..." required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="send">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 
+<div class="subscribe">
+    <div class="subscribe-content">
+
+    </div>
+</div> -->
+
+
+    <footer>
+        <div class="footer-container">
+            <!--**comoany-box**-->
+            <div class="footer-company-box">
+                <!--logo-->
+                <a href="#" class="footer-logo">Contact Us</a>
+                <!--details-->
+                <p>123 Fifth Avenue,New Delhi</p>
+                <!--social-box-->
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>Main Link's</strong>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Product.html">Products</a></li>
+
+                </ul>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>External Link's</strong>
+                <ul>
+                    <li><a href="#">Our Product's</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Trem's and Condition's</a></li>
+                </ul>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>Our Product's</strong>
+                <ul>
+                    <li><a href="#">Skin Care</a></li>
+                    <li><a href="#">Hair Care</a></li>
+                    <li><a href="#">Nail's Polish</a></li>
+                    <li><a href="#">Eye Liner's</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!--**************************bottom**********************-->
+        <div class="footer-bottom">
+
+            <span class="copyright">&#169; Copyright 2024 @BeautyGlow</span>
+        </div>
+
+</body>
+
+</html>

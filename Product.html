@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Now</title>
+    <link rel="stylesheet" href="webpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+ <style>  
+
+.arrival-heading strong {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: #1b1919;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 50px;
+    padding: 5px 30px;
+    border: 1px solid #e0e0e0;
+}
+
+.arrival-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ margin-top: 5rem;
+}
+
+.arrival-heading strong {
+    color: #ffffff;
+    background-color: #EAAC8B;
+    font-weight: 600;
+    font-size: 1.5rem;
+
+}
+
+.arrival-heading p {
+    color: #808080;
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+.product-container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.product-box {
+    display: flex;
+    flex-grow: 0.5;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f7f7f7;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.product-img {
+    width: 200px;
+    height: 210px;
+    margin: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    border-top: 1px solid #f3f3f3;
+}
+
+.p-name {
+    color: #727272;
+    text-decoration: none;
+}
+
+.p-price {
+    color: #333333;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.product-box:hover {
+    box-shadow: 2px 2px 10px #333;
+    transition: all ease .2s;
+}
+
+.add-cart {
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #0b9d8a;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    display: none;
+    animation: fade 0.3s;
+
+}
+
+.add-cart:hover {
+    background-color: #f76b6a;
+    transition: all ease 0.2s;
+}
+
+.product-box:hover .add-cart {
+    display: flex;
+}
+
+.new-arrival {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+
+<body>
+
+    <div class="container">
+
+        <div class="heading">
+            <header>
+
+                <!-- <input type="checkbox" id="toggler">
+               <label for="toggler" class="fa fa-bars"></label> -->
+                <div class="headingcontent">
+                    <h2>BeautyGlow </h2>
+
+
+                </div>
+                <!-- Hamburger Icon -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <i class="fa fa-bars"></i>
+            </label>
+                <nav class="navbar">
+                    <a href="index.html">Home</a>
+                    <a href="">Products</a>
+                    <a href="about.html">About us</a>
+
+                    <a href="signup.html">Login</a>
+                    <a href="contact.html">Contact Us</a>
+
+
+                </nav>
+            </header>
+        </div>
+
+
+        <!--heading-------->
+        <div class="arrival-heading">
+            <strong class="ribbon">Our Products</strong>
+            <p>We provide you safest organic product</p>
+
+
+        </div>
+        <!--products----------------------->
+        <div class="product-container">
+
+            <!--product-box-1---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/product image-1.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Matte lipstick</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <!--product-box-2---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                    <!--img------>
+                    <img src="img/foundation.jpg">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Foundation</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <!--product-box-3---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                    <!--img------>
+                    <img src="img/product image-3.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Blush</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <!--product-box-4---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                    <!--img------>
+                    <img src="img/product image-4.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Nail polish</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <!--product-box-5---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                    <!--img------>
+                    <img src="img/product image-5.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Hand cream</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <!--product-box-6---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                    <!--img------>
+                    <img src="img/product image-6.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Body lotion</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <!--product-box-7---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                    <!--img------>
+                    <img src="img/product image-7.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Eyeliner</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <!--product-box-8---------->
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/product image-8.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/product image-9.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/make up image.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+
+                </div>
+            </div>
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/cream-removebg-preview.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+                </div>
+            </div>
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/Rectangle 12344.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+                </div>
+            </div>
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/skincare image.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+                </div>
+            </div>
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/serum-removebg-preview.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+                </div>
+            </div>
+            <div class="product-box">
+                <!--product-img------------>
+                <div class="product-img">
+                    <!--add-cart---->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!--img------>
+                    <img src="img/soap-removebg-preview.png">
+                </div>
+                <!--product-details-------->
+                <div class="product-details">
+                    <a href="#" class="p-name">Mascara</a>
+                    <span class="p-price">$22.00</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <footer>
+        <div class="footer-container">
+            <!--**comoany-box**-->
+            <div class="footer-company-box">
+                <!--logo-->
+                <a href="#" class="footer-logo">Contact Us</a>
+                <!--details-->
+                <p>123 Fifth Avenue,New Delhi</p>
+                <!--social-box-->
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>Main Link's</strong>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Product.html">Products</a></li>
+                    
+                </ul>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>External Link's</strong>
+                <ul>
+                    <li><a href="#">Our Product's</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Trem's and Condition's</a></li>
+                </ul>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>Our Product's</strong>
+                <ul>
+                    <li><a href="#">Skin Care</a></li>
+                    <li><a href="#">Hair Care</a></li>
+                    <li><a href="#">Nail's Polish</a></li>
+                    <li><a href="#">Eye Liner's</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!--**************************bottom**********************-->
+        <div class="footer-bottom">
+            
+            <span class="copyright">&#169; Copyright 2024 @BeautyGlow</span>
+        </div>
+        <div class="arrow-up">
+            <div class="arrow-up-container">
+               <a href="#"><i class="fas fa-arrow-up"></i></a>
+            </div>
+
+        </div> 
+        <div class="arrow-down">
+            <div class="arrow-down-container">
+               <a href="#"><i class="fas fa-arrow-down"></i></a>
+            </div>
+
+        </div>
+        <div class="ask-me-container">
+            <div class="ask-me-circle">
+                <p>Help?</p>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+    <hr>
+
+
+    <script src="main.js"></script>
+</body>
+
+</body>
+
+</html>
