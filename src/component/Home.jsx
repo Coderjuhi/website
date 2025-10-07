@@ -1,0 +1,244 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+    FaShoppingCart,
+    FaShippingFast,
+    FaHeadphonesAlt,
+    FaUndoAlt,
+    FaSync,
+    FaArrowUp,
+    FaStar,
+} from "react-icons/fa";
+
+const Home = () => {
+    return (
+        <div id="home" className="bg-white min-h-screen">
+            {/* ************ HERO SECTION ************ */}
+            <section
+                className="flex justify-center items-center bg-cover bg-right text-center min-h-[80vh] px-6 border-b border-gray-200"
+                style={{
+                    backgroundImage:
+                        "url('/img/elegant-skin-care-banner-design.jpg')",
+                }}
+            >
+                <div className="max-w-3xl text-white text-left -mt-12">
+                    <h1 className="text-3xl font-bold text-black">Hello Skincare!</h1>
+                    <p className="text-2xl text-[#205b4f] font-semibold mt-4">
+                        Ready to glow with Organics
+                    </p>
+                    <Link
+  to="/product"
+  className="mt-6 inline-block border-2 border-[#205b4f] text-[#205b4f] px-3 py-1 rounded-md text-xl font-semibold hover:bg-[#205b4f] hover:text-white transition-all"
+>
+  Shop Now
+</Link>
+                </div>
+            </section>
+
+            {/* ************ RATING SECTION ************ */}
+            <section className="text-center py-12 px-6 border-b border-gray-200 mt-8 bg-white shadow-lg">
+                <h2 className="text-2xl font-bold text-gray-700 mb-8">
+                    Trusted Over 350,000+ Clients Worldwide Since 2024
+                </h2>
+                <div className="flex flex-wrap justify-center gap-8">
+                    {[
+                        { title: "4M+", text: "Worldwide product sale per year" },
+                        { title: "3,350+", text: "Ratings Worldwide" },
+                    ].map((stat, i) => (
+                        <div
+                            key={i}
+                            className="bg-gray-100 p-6 rounded-lg min-w-[250px]"
+                        >
+                            <h3 className="text-3xl font-bold">{stat.title}</h3>
+                            <div className="flex justify-center text-yellow-400 mt-2">
+                                {[...Array(5)].map((_, i) => (
+                                    <FaStar key={i} />
+                                ))}
+                            </div>
+                            <p className="mt-2 text-gray-600">{stat.text}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* ************ NEW ARRIVALS ************ */}
+            <section className="text-center py-16 px-6 border-b border-gray-200 mt-8 bg-white shadow-lg">
+                <div className="mb-10">
+                    <strong className="bg-[#EAAC8B] text-white px-4 py-2 text-lg rounded-md">
+                        New Arrival
+                    </strong>
+                    <p className="text-gray-600 mt-4 text-lg">
+                        We provide you with new and organic skincare products
+                    </p>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-10 ">
+                    {[
+                        { name: "Matte Lipstick", price: "$22.00", img: "/img/lipstick.png" },
+                        { name: "Foundation", price: "$19.00", img: "/img/foundation.jpg" },
+                        { name: "Blush", price: "$3.00", img: "/img/blushjpg.jpg" },
+                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
+                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
+                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
+                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
+                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
+                    ].map((product, i) => (
+                        <div key={i} className="flex flex-col items-center p-4">
+                            <div className="relative w-40 h-44 mb-3">
+                                <img
+                                    src={product.img}
+                                    alt={product.name}
+                                    className="rounded-md w-full h-full object-cover"
+                                />
+                                <a
+                                    href="#"
+                                    className="absolute top-2 right-2 bg-teal-600 hover:bg-[#EAAC8B] text-white p-2 rounded-full"
+                                >
+                                    <FaShoppingCart />
+                                </a>
+                            </div>
+                            <h4 className="font-semibold text-lg">{product.name}</h4>
+                            <span className="text-gray-600">{product.price}</span>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* ************ VIRTUAL BOX ************ */}
+            <section className="flex flex-wrap justify-center m-6 p-6 border-b border-gray-200 mt-8 bg-pink-200 text-white ">
+                <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
+                    <div className="flex-1 text-gwhite p-4">
+                        <h1 className="text-3xl font-bold mb-4">
+                            NEW Virtual Skin Analysis
+                        </h1>
+                        <p className="text-lg text-white mb-6">
+                            Our Virtual Skincare Analysis evaluates your skin and gives personalized recommendations.
+                        </p>
+                        <div className="text-center">
+                            <h4 className="text-lg textiwhite mb-4">
+                                Scan with your phone to get started <br /> or
+                            </h4>
+                            <img src="img/qr code.png" alt="QR code" className="h-32 mx-auto" />
+                        </div>
+                    </div>
+
+                    <div className="flex-1 flex justify-center">
+                        <img
+                            src="img/image 10.png"
+                            alt="Virtual skin analysis"
+                            className="max-h-96 rounded-lg"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* ************ Brand Section *************** */}
+            <section className="flex flex-wrap justify-center m-6 p-6 border-b border-gray-200 mt-8 bg-orange-100">
+                <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
+                    <div className="flex-1 text-gray-800 p-4">
+                        <h3 className="text-3xl font-semibold mb-4">Our Brand</h3>
+                        <p className="text-gray-700 mb-6">
+                            From the very beginning, our founder believed that BeautyGlow could not only disrupt beauty retail
+                            but also have a positive impact on the world. Our story began in 2023 when our founder, Jane,
+                            realized there were very few cosmetic brands that catered to her skin type. Encouraged by her
+                            success, she decided to turn her passion into a sustainable and ethical beauty brand.
+                        </p>
+                        <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-md">
+                            Discover more
+                        </button>
+                    </div>
+
+                    <div className="flex-1 flex justify-center">
+                        <img
+                            src="img/Rectangle 12336.png"
+                            alt="Our brand"
+                            className="max-h-96 rounded-lg"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* ************ TESTIMONIALS ************ */}
+            <section className="py-16 px-6 border-b border-gray-200 m-6 text-center shadow-md">
+                <h2 className="text-4xl mb-10 font-semibold text-gray-800">Testimonials</h2>
+                <div className="flex flex-wrap justify-center gap-8">
+                    {[
+                        {
+                            img: "img/customer1.jpg",
+                            text: "I've been using these products for just a week, and my skin has never felt smoother!",
+                            name: "Sarah P.",
+                        },
+                        {
+                            img: "img/customer2.jpg",
+                            text: "I love how creamy and long-lasting it is. The color stays vibrant all day.",
+                            name: "Mia S.",
+                        },
+                        {
+                            img: "img/customer3.jpg",
+                            text: "After using this hair oil, my hair is shinier and less frizzy. It feels healthier and more manageable — highly recommended!",
+                            name: "Alex M.",
+                        },
+                    ].map((t, index) => (
+                        <div
+                            key={index}
+                            className="bg-white border border-gray-200 rounded-lg p-6 w-72 text-left"
+                        >
+                            <img
+                                src={t.img}
+                                alt={t.name}
+                                className="w-24 h-24 mx-auto rounded-full mb-4 object-cover"
+                            />
+                            <p className="text-gray-700 mb-3 text-sm">{t.text}</p>
+                            <div className="flex justify-center text-yellow-500 mb-2">
+                                {[...Array(5)].map((_, i) => (
+                                    <FaStar key={i} />
+                                ))}
+                            </div>
+                            <h4 className="font-semibold text-gray-800 text-center">{t.name}</h4>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+
+            {/* ************ SERVICES ************ */}
+
+            <section className="flex flex-wrap justify-center items-center gap-6 p-10 bg-white">
+                {[
+                    {
+                        icon: <FaShippingFast className="text-green-600 text-3xl mb-3" />,
+                        title: "Free Shipping",
+                        desc: "Free Shipping for all US orders",
+                    },
+                    {
+                        icon: <FaHeadphonesAlt className="text-green-600 text-3xl mb-3" />,
+                        title: "Support 24/7",
+                        desc: "We support you 24 hours a day",
+                    },
+                    {
+                        icon: <FaUndoAlt className="text-green-600 text-3xl mb-3" />,
+                        title: "100% Money Return",
+                        desc: "Return back guaranteed",
+                    },
+                ].map((s, i) => (
+                    <div
+                        key={i}
+                        className="flex flex-col items-center text-center border border-gray-200 rounded-2xl p-6 w-full sm:w-64 md:w-72 shadow-sm hover:shadow-md transition"
+                    >
+                        {s.icon}
+                        <span className="font-semibold text-lg mt-2">{s.title}</span>
+                        <p className="text-gray-500 text-sm mt-2">{s.desc}</p>
+                    </div>
+                ))}
+            </section>
+
+
+
+
+
+
+        </div >
+    );
+};
+
+export default Home;
