@@ -76,13 +76,13 @@ const Home = () => {
                     {[
                         { name: "Matte Lipstick", price: "$22.00", img: "/img/lipstick.png" },
                         { name: "Foundation", price: "$19.00", img: "/img/foundation.jpg" },
-                        { name: "Blush", price: "$3.00", img: "/img/blushjpg.jpg" },
+                        { name: "Blush", price: "$3.00", img: "/img/blush.jpg" },
                         { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
-                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
-                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
-                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
-                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
-                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
+                        { name: "Hand Cream", price: "$50.00", img: "/img/product image-5.png" },
+                        { name: "Body Scent", price: "$67.00", img: "/img/product image-6.png" },
+                        { name: "Primer", price: "$78.00", img: "/img/product image-7.png" },
+                        { name: "Eyeliner", price: "$16.00", img: "/img/eyeliner.png" },
+                        { name: "Body Lotion", price: "$6.00", img: "/img/bodylotion.png" },
                     ].map((product, i) => (
                         <div key={i} 
                         className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto flex flex-col"

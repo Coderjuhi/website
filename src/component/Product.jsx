@@ -11,16 +11,16 @@ const Product = () => {
   const products = [
     { name: "Matte Lipstick", price: "$22.00", img: "/img/product image-1.png" },
     { name: "Foundation", price: "$19.00", img: "/img/product image-2.png" },
-    { name: "Blush", price: "$3.00", img: "/img/product image-3.png" },
-    { name: "Nail Polish", price: "$45.00", img: "/img/product image-4.png" },
+    { name: "Lip Balm", price: "$3.00", img: "/img/product image-3.png" },
+    { name: "Perfume", price: "$45.00", img: "/img/product image-4.png" },
     { name: "Hand Cream", price: "$50.00", img: "/img/product image-5.png" },
-    { name: "Body Lotion", price: "$67.00", img: "/img/product image-6.png" },
-    { name: "Eyeliner", price: "$78.00", img: "/img/product image-7.png" },
-    { name: "Mascara", price: "$26.00", img: "/img/product image-8.png" },
-    { name: "Mascara", price: "$26.00", img: "/img/product image-8.png" },
-    { name: "Mascara", price: "$26.00", img: "/img/product image-8.png" },
-    { name: "Mascara", price: "$26.00", img: "/img/product image-8.png" },
-    { name: "Mascara", price: "$26.00", img: "/img/product image-8.png" },
+    { name: "Body Scent", price: "$67.00", img: "/img/product image-6.png" },
+    { name: "Primer", price: "$78.00", img: "/img/product image-7.png" },
+    { name: "Eyeliner", price: "$16.00", img: "/img/eyeliner.png" },
+    { name: "Body Lotion", price: "$6.00", img: "/img/bodylotion.png" },
+    { name: "Blush", price: "$6.00", img: "/img/blush.jpg" },
+    { name: "Highlighter", price: "$7.00", img: "/img/product image-11.png" },
+    { name: "Serum", price: "$8.00", img: "/img/serum-removebg-preview.png" },
   ];
 
   return (
