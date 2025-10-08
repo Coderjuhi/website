@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
+import { Filter, Search } from 'lucide-react';
+
 
 const Product = () => {
   const [filterOpen, setFilterOpen] = useState(false);
@@ -25,21 +27,20 @@ const Product = () => {
     <div className="relative min-h-screen bg-white ">
       {/* Filter Toggle Button */}
       <button
-  onClick={toggleFilter}
-  className="fixed top-16 left-3 bg-teal-600 text-white px-3 py-1.5 
+        onClick={toggleFilter}
+        className="fixed top-16 left-3 bg-teal-600 text-white px-3 py-1.5 
   rounded-full shadow-md text-base md:text-lg 
   md:top-20 md:left-4 md:px-4 md:py-2 z-50"
 
->
-  ☰ Filters
-</button>
+      >
+        ☰ Filters
+      </button>
 
 
       {/* Sidebar Filter */}
       <div
-        className={`fixed top-27 left-0 h-full bg-white border-r border-gray-300 overflow-y-auto transition-all duration-300 z-40 ${
-          filterOpen ? "w-64" : "w-0"
-        }`} >
+        className={`fixed top-27 left-0 h-full bg-white border-r border-gray-300 overflow-y-auto transition-all duration-300 z-40 ${filterOpen ? "w-64" : "w-0"
+          }`} >
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <h3 className="text-lg font-semibold">Filters</h3>
           <button onClick={toggleFilter} className="text-2xl font-bold">
@@ -74,25 +75,43 @@ const Product = () => {
 
       {/* Main Content */}
       <div
-        className={`transition-all duration-300 p-6 ${
-          filterOpen ? "ml-64" : "ml-0"
-        }`}
+        className={`transition-all duration-300 p-6 ${filterOpen ? "ml-64" : "ml-0"
+          }`}
       >
         {/* Heading */}
         <div className="text-center mb-8">
-        <strong className="bg-[#EAAC8B] text-white px-6 py-2 text-lg rounded-md ">
-                        Our Products
-                    </strong>        
-                      <p className="text-gray-600 mt-4">We provide you safest organic products</p>
+          <strong className="bg-[#EAAC8B] text-white px-6 py-2 text-lg rounded-md ">
+            Our Products
+          </strong>
+          <p className="text-gray-600 mt-4">We provide you safest organic products</p>
+        </div>
+
+        <div className="mb-8 bg-white p-4 rounded-xl">
+          <div className="flex items-center mb-3">
+            <Filter className="h-5 w-5 text-emerald-600 mr-2" />
+            <h2 className="text-lg font-semibold text-gray-800">Search & Filter Products</h2>
+          </div>
+
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-gray-700 mb-2">Search Products</label>
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search by name, description, or ingredients..."
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {products.map((product, idx) => (
-            <div key={idx} 
-            className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto"
+            <div key={idx}
+              className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto"
             ><div className="relative w-full h-48 overflow-hidden rounded-md">
-<img
+                <img
                   src={product.img}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md"
