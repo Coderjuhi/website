@@ -22,21 +22,24 @@ const Product = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white ">
       {/* Filter Toggle Button */}
       <button
-        onClick={toggleFilter}
-        className="fixed top-20 left-4 bg-teal-600 text-white px-4 py-2 rounded-md z-50"
-      >
-        ☰ Filters
-      </button>
+  onClick={toggleFilter}
+  className="fixed top-16 left-3 bg-teal-600 text-white px-3 py-1.5 
+  rounded-full shadow-md text-base md:text-lg 
+  md:top-20 md:left-4 md:px-4 md:py-2 z-50"
+
+>
+  ☰ Filters
+</button>
+
 
       {/* Sidebar Filter */}
       <div
         className={`fixed top-27 left-0 h-full bg-white border-r border-gray-300 overflow-y-auto transition-all duration-300 z-40 ${
           filterOpen ? "w-64" : "w-0"
-        }`}
-      >
+        }`} >
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <h3 className="text-lg font-semibold">Filters</h3>
           <button onClick={toggleFilter} className="text-2xl font-bold">
