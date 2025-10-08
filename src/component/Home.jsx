@@ -82,8 +82,11 @@ const Home = () => {
                         { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
                         { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
                         { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
+                        { name: "Nail Polish", price: "$45.00", img: "/img/nail polish.jpg" },
                     ].map((product, i) => (
-                        <div key={i} className="flex flex-col items-center p-4">
+                        <div key={i} 
+                        className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto flex flex-col"
+                        >
                             <div className="relative w-40 h-44 mb-3">
                                 <img
                                     src={product.img}

@@ -39,16 +39,16 @@ const Product = () => {
 
       {/* Sidebar Filter */}
       <div
-  className={`fixed top-27 left-0 h-full bg-white border-r border-gray-300 overflow-y-auto 
+        className={`fixed top-27 left-0 h-full bg-white border-r border-gray-300 overflow-y-auto 
               transition-all duration-300 z-40
               ${filterOpen ? "w-full md:w-64" : "w-0"}`}
->
-  <div className="flex justify-between items-center p-4 border-b border-gray-200">
-    <h3 className="text-lg font-semibold">Filters</h3>
-    <button onClick={toggleFilter} className="text-2xl font-bold">
-      &times;
-    </button>
-  </div>
+      >
+        <div className="flex justify-between items-center p-4 border-b border-gray-200">
+          <h3 className="text-lg font-semibold">Filters</h3>
+          <button onClick={toggleFilter} className="text-2xl font-bold">
+            &times;
+          </button>
+        </div>
         {/* Brand Filter */}
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Brand</h4>
