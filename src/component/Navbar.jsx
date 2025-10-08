@@ -9,8 +9,12 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-gray-100 px-6 py-3 shadow-md">
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <Link to="/" onClick={() => setMenuOpen(false)}>
-          <h2 className="text-4xl font-playfair bg-gradient-to-r from-[#EAAC8B] to-[#423127] bg-clip-text text-transparent font-semibold">
+        <Link
+          to="/"
+          onClick={() => setMenuOpen(false)}
+          className="flex items-center"
+        >
+          <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-playfair bg-gradient-to-r from-[#EAAC8B] to-[#423127] bg-clip-text text-transparent font-semibold transition-all duration-300">
             BeautyGlow
           </h2>
         </Link>
@@ -26,11 +30,10 @@ export default function Navbar() {
 
       {/* Navbar Links */}
       <nav
-        className={`${
-          menuOpen
+        className={`${menuOpen
             ? "flex flex-col absolute top-full right-6 bg-white border border-gray-200 shadow-lg p-4 gap-3 w-48"
             : "hidden"
-        } md:flex md:flex-row md:items-center md:gap-6 md:static md:bg-transparent md:border-0 md:shadow-none`}
+          } md:flex md:flex-row md:items-center md:gap-6 md:static md:bg-transparent md:border-0 md:shadow-none`}
       >
         <Link
           to="/"
