@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import { Filter, Search } from 'lucide-react';
+import { Filter } from 'lucide-react';
+import products from "./productData"; // Import product data
 
 const Product = () => {
   const [filterOpen, setFilterOpen] = useState(false);
@@ -11,22 +12,6 @@ const Product = () => {
 
   const toggleFilter = () => setFilterOpen(!filterOpen);
 
-  const products = [
-    { name: "Matte Lipstick", price: 22, brand: "Lakme", category: "Makeup", img: "/img/product image-1.png" },
-    { name: "Foundation", price: 19, brand: "Mamaearth", category: "Makeup", img: "/img/product image-2.png" },
-    { name: "Lip Balm", price: 3, brand: "Plum", category: "Makeup", img: "/img/product image-3.png" },
-    { name: "Perfume", price: 45, brand: "Lakme", category: "Body Care", img: "/img/product image-4.png" },
-    { name: "Hand Cream", price: 50, brand: "Mamaearth", category: "Skin Care", img: "/img/product image-5.png" },
-    { name: "Body Scent", price: 67, brand: "Plum", category: "Body Care", img: "/img/product image-6.png" },
-    { name: "Primer", price: 78, brand: "Lakme", category: "Makeup", img: "/img/product image-7.png" },
-    { name: "Eyeliner", price: 16, brand: "Mamaearth", category: "Makeup", img: "/img/eyeliner.png" },
-    { name: "Body Lotion", price: 6, brand: "Plum", category: "Skin Care", img: "/img/bodylotion.png" },
-    { name: "Blush", price: 6, brand: "Lakme", category: "Makeup", img: "/img/blush.jpg" },
-    { name: "Highlighter", price: 7, brand: "Mamaearth", category: "Makeup", img: "/img/product image-11.png" },
-    { name: "Serum", price: 8, brand: "Plum", category: "Skin Care", img: "/img/serum-removebg-preview.png" },
-  ];
-
-  // Handle brand selection
   const handleBrandChange = (brand) => {
     if (selectedBrands.includes(brand)) {
       setSelectedBrands(selectedBrands.filter(b => b !== brand));
@@ -35,7 +20,6 @@ const Product = () => {
     }
   };
 
-  // Handle category selection
   const handleCategoryChange = (category) => {
     if (selectedCategories.includes(category)) {
       setSelectedCategories(selectedCategories.filter(c => c !== category));
@@ -44,15 +28,12 @@ const Product = () => {
     }
   };
 
-  // Handle price selection
   const handlePriceChange = (range) => {
     setSelectedPrice(range);
   };
 
-  // Filter products based on search and selected filters
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    
     const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
     const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
 
@@ -82,7 +63,6 @@ const Product = () => {
           <button onClick={toggleFilter} className="text-2xl font-bold">&times;</button>
         </div>
 
-        {/* Brand Filter */}
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Brand</h4>
           {["Lakme", "Mamaearth", "Plum"].map(brand => (
@@ -98,7 +78,6 @@ const Product = () => {
           ))}
         </div>
 
-        {/* Price Filter */}
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Price</h4>
           <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("0-500")} checked={selectedPrice==="0-500"} className="mr-2"/> ₹0 - ₹500</label>
@@ -106,7 +85,6 @@ const Product = () => {
           <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("1000+")} checked={selectedPrice==="1000+"} className="mr-2"/> ₹1000+</label>
         </div>
 
-        {/* Category Filter */}
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Category</h4>
           {["Skin Care", "Hair Care", "Makeup", "Body Care"].map(cat => (
@@ -125,7 +103,6 @@ const Product = () => {
 
       {/* Main Content */}
       <div className={`transition-all duration-300 p-6 ${filterOpen ? "ml-64 md:ml-64" : "ml-0"}`}>
-        {/* Search Box */}
         <div className="mb-8 bg-white p-4 rounded-xl mt-5">
           <div className="flex items-center mb-3">
             <Filter className="h-5 w-5 text-emerald-600 mr-2" />
@@ -142,7 +119,6 @@ const Product = () => {
           </div>
         </div>
 
-        {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {filteredProducts.map((product, idx) => (
             <div key={idx} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto">
