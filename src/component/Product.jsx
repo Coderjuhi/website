@@ -80,9 +80,9 @@ const Product = () => {
 
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Price</h4>
-          <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("0-500")} checked={selectedPrice==="0-500"} className="mr-2"/> ₹0 - ₹500</label>
-          <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("500-1000")} checked={selectedPrice==="500-1000"} className="mr-2"/> ₹500 - ₹1000</label>
-          <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("1000+")} checked={selectedPrice==="1000+"} className="mr-2"/> ₹1000+</label>
+          <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("0-500")} checked={selectedPrice === "0-500"} className="mr-2" /> ₹0 - ₹500</label>
+          <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("500-1000")} checked={selectedPrice === "500-1000"} className="mr-2" /> ₹500 - ₹1000</label>
+          <label className="block"><input type="radio" name="price" onChange={() => handlePriceChange("1000+")} checked={selectedPrice === "1000+"} className="mr-2" /> ₹1000+</label>
         </div>
 
         <div className="p-4 border-b border-gray-100">
@@ -121,19 +121,38 @@ const Product = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {filteredProducts.map((product, idx) => (
-            <div key={idx} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto">
+            <div
+              key={idx}
+              className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto"
+            >
               <div className="relative w-full h-48 overflow-hidden rounded-md">
-                <img src={product.img} alt={product.name} className="w-full h-48 object-cover rounded-md" />
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="w-full h-48 object-cover rounded-md"
+                />
                 <button className="absolute top-2 right-2 bg-teal-600 text-white p-2 rounded-full hover:bg-[#EAAC8B]">
                   <FaShoppingCart />
                 </button>
               </div>
               <h4 className="mt-3 font-semibold">{product.name}</h4>
-              <p className="text-gray-600">${product.price}</p>
+              <p className="text-gray-600">₹{product.price}</p>
             </div>
           ))}
-          {filteredProducts.length === 0 && <p className="text-gray-500 col-span-full text-center">No products found.</p>}
+
+          {/* Message Section */}
+          {filteredProducts.length === 0 ? (
+            <p className="text-gray-500 col-span-full text-center">
+              No products found.
+            </p>
+          ) : (
+            <p className="text-gray-400 col-span-full text-center font-medium">
+             {filteredProducts.length} Products found
+              {filteredProducts.length > 1 ? "s" : ""}.
+            </p>
+          )}
         </div>
+
       </div>
     </div>
   );
