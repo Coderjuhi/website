@@ -27,11 +27,11 @@ const Home = () => {
                         Ready to glow with Organics
                     </p>
                     <Link
-  to="/product"
-  className="mt-6 inline-block border-2 border-[#205b4f] text-[#205b4f] px-3 py-1 rounded-md text-xl font-semibold hover:bg-[#205b4f] hover:text-white transition-all"
->
-  Shop Now
-</Link>
+                        to="/product"
+                        className="mt-6 inline-block border-2 border-[#205b4f] text-[#205b4f] px-3 py-1 rounded-md text-xl font-semibold hover:bg-[#205b4f] hover:text-white transition-all"
+                    >
+                        Shop Now
+                    </Link>
                 </div>
             </section>
 
@@ -72,7 +72,7 @@ const Home = () => {
                     </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-10 ">
+                <div className="flex flex-wrap justify-center gap-10">
                     {[
                         { name: "Matte Lipstick", price: "22.00", img: "/img/lipstick.png" },
                         { name: "Foundation", price: "19.00", img: "/img/foundation.jpg" },
@@ -84,8 +84,9 @@ const Home = () => {
                         { name: "Eyeliner", price: "16.00", img: "/img/eyeliner.png" },
                         { name: "Body Lotion", price: "6.00", img: "/img/bodylotion.png" },
                     ].map((product, i) => (
-                        <div key={i} 
-                        className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto flex flex-col"
+                        <div
+                            key={i}
+                            className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto flex flex-col items-center"
                         >
                             <div className="relative w-40 h-44 mb-3">
                                 <img
@@ -93,19 +94,23 @@ const Home = () => {
                                     alt={product.name}
                                     className="rounded-md w-full h-full object-cover"
                                 />
-                                <a
-                                    href="#"
-                                    className="absolute top-2 right-2 bg-teal-600 hover:bg-[#EAAC8B] text-white p-2 rounded-full"
-                                >
-                                    <FaShoppingCart />
-                                </a>
                             </div>
                             <h4 className="font-semibold text-lg">{product.name}</h4>
-                            <span className="text-gray-600">₹{product.price}</span>
+                            <span className="text-gray-600 mb-3">₹{product.price}</span>
+                            <Link
+                                to="/add-cart"
+                                className="bg-teal-600 text-white font-medium px-4 py-2 rounded-md hover:bg-[#EAAC8B] hover:scale-105 transform transition-all duration-200 inline-flex items-center justify-center w-full text-center"
+                            >
+                                <FaShoppingCart className="text-lg mr-2" />
+                                Add to Cart
+                            </Link>
+
+
                         </div>
                     ))}
                 </div>
             </section>
+
 
             {/* ************ VIRTUAL BOX ************ */}
             <section className="flex flex-wrap justify-center m-6 p-6 border-b border-gray-200 mt-8 bg-pink-200 text-white ">
