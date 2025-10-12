@@ -5,7 +5,7 @@ import Layout from "./Layout";
 import LayoutWithoutFooter from "./LayoutWithoutFooter";
 import Home from "./component/Home";
 import Product from "./component/Product";
-import ProductDetail from "./component/productDetail"; // ✅ new
+import ProductDetail from "./component/productDetail";
 import About from "./component/About";
 import Contact from "./component/Contact";
 import Login from "./component/Login";
