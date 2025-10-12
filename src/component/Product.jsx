@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Filter } from "lucide-react";
 import { FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import products from "./productData"; // Import product data
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../component/CartContext"; // ✅ Correct path
+import products from "../component/productData"; // ✅ Correct path to your data file
 
 const Product = () => {
   const [filterOpen, setFilterOpen] = useState(false);
@@ -11,11 +12,16 @@ const Product = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedPrice, setSelectedPrice] = useState("");
 
+  const { addToCart } = useCart(); // ✅ use cart context
+  const navigate = useNavigate(); // ✅ for redirect
+
   const toggleFilter = () => setFilterOpen(!filterOpen);
 
   const handleBrandChange = (brand) => {
     setSelectedBrands((prev) =>
-      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+      prev.includes(brand)
+        ? prev.filter((b) => b !== brand)
+        : [...prev, brand]
     );
   };
 
@@ -29,6 +35,7 @@ const Product = () => {
 
   const handlePriceChange = (range) => setSelectedPrice(range);
 
+  // ✅ Filtering logic
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name
       .toLowerCase()
@@ -60,8 +67,9 @@ const Product = () => {
 
       {/* Sidebar Filter */}
       <div
-        className={`fixed top-30 left-0 h-full bg-white border-r border-gray-300 overflow-y-auto transition-all duration-300 z-40 ${filterOpen ? "w-full md:w-64" : "w-0"
-          }`}
+        className={`fixed top-30 left-0 h-full bg-white border-r border-gray-300 overflow-y-auto transition-all duration-300 z-40 ${
+          filterOpen ? "w-full md:w-64" : "w-0"
+        }`}
       >
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <h3 className="text-lg font-semibold">Filters</h3>
@@ -70,6 +78,7 @@ const Product = () => {
           </button>
         </div>
 
+        {/* Brand Filter */}
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Brand</h4>
           {["Lakme", "Mamaearth", "Plum"].map((brand) => (
@@ -85,6 +94,7 @@ const Product = () => {
           ))}
         </div>
 
+        {/* Price Filter */}
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Price</h4>
           <label className="block">
@@ -119,6 +129,7 @@ const Product = () => {
           </label>
         </div>
 
+        {/* Category Filter */}
         <div className="p-4 border-b border-gray-100">
           <h4 className="font-semibold mb-2">Category</h4>
           {["Skin Care", "Hair Care", "Makeup", "Body Care"].map((cat) => (
@@ -137,8 +148,9 @@ const Product = () => {
 
       {/* Main Content */}
       <div
-        className={`transition-all duration-300 p-6 ${filterOpen ? "ml-64 md:ml-64" : "ml-0"
-          }`}
+        className={`transition-all duration-300 p-6 ${
+          filterOpen ? "ml-64 md:ml-64" : "ml-0"
+        }`}
       >
         <div className="mb-8 bg-white p-4 rounded-xl mt-5">
           <div className="flex items-center mb-3">
@@ -163,25 +175,30 @@ const Product = () => {
               key={idx}
               className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition w-full max-w-[220px] mx-auto flex flex-col items-center"
             >
-              <div className="relative w-full h-48 overflow-hidden rounded-md mb-3">
+              <div className="relative w-full h-48 overflow-hidden rounded-md mb-3 cursor-pointer
+">
                 <img
                   src={product.img}
                   alt={product.name}
                   className="w-full h-48 object-cover rounded-md"
+                  onClick={() => navigate(`/product/${product.id}`)}  // ✅ Correct
+
                 />
               </div>
               <h4 className="font-semibold text-lg">{product.name}</h4>
               <p className="text-gray-600 mb-3">₹{product.price}</p>
 
               {/* ✅ Add to Cart Button */}
-              <Link
-                to="/add-cart"
+              <button
+                onClick={() => {
+                  addToCart(product); // ✅ Add to cart
+                  navigate("/add-cart"); // ✅ Redirect to cart page
+                }}
                 className="bg-teal-600 text-white font-medium px-4 py-2 rounded-md hover:bg-[#EAAC8B] hover:scale-105 transform transition-all duration-200 inline-flex items-center justify-center w-full text-center"
               >
                 <FaShoppingCart className="text-lg mr-2" />
                 Add to Cart
-              </Link>
-
+              </button>
             </div>
           ))}
 
