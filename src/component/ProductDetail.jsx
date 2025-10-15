@@ -1,7 +1,5 @@
-// src/component/ProductDetails.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import products from "./productData";
 import { useCart } from "./CartContext";
 
 const ProductDetail = () => {
@@ -9,16 +7,40 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
-  // find product by id
-  const product = products.find((p) => p.id === parseInt(id));
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true); // Loading state
 
-  if (!product) {
+  useEffect(() => {
+    // Simulate API call
+    fetch(`http://localhost:5000/api/products/${id}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Product not found");
+        return res.json();
+      })
+      .then((data) => {
+        setProduct(data);
+        setLoading(false); // Stop loading
+      })
+      .catch((err) => {
+        console.error(err);
+        setProduct(null);
+        setLoading(false); // Stop loading even on error
+      });
+  }, [id]);
+
+  if (loading)
+    return (
+      <div className="text-center mt-20 text-gray-500 text-xl">
+        Loading product details...
+      </div>
+    );
+
+  if (!product)
     return (
       <div className="text-center mt-20 text-gray-500 text-xl">
         Product not found 😢
       </div>
     );
-  }
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center min-h-screen p-8 bg-white">

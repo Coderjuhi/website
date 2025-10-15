@@ -1,36 +1,62 @@
 import React, { useState, useEffect } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
-import Signup from "./Signup"; // import your Signup component
+import Signup from "./Signup";
+import API from "../../beautyglow-server/src/api/api";
 
-export default function Login() {
+export default function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
 
-  // Disable scroll when modal is open
+  // Disable body scroll when modal is open
   useEffect(() => {
-    document.body.style.overflow = showSignup ? "hidden" : "auto";
+    document.body.style.overflow = showSignup || showLogin ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
-  }, [showSignup]);
+  }, [showSignup, showLogin]);
 
-  function handleSubmit(e) {
+  // Handle login submit
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password.length < 6) {
-      alert("Password must be at least 6 characters for demo");
-      return;
+    if (password.length < 6) return alert("Password must be at least 6 characters");
+
+    try {
+      const res = await API.post("/login", { email, password });
+      const { user, token } = res.data;
+
+      // Save to localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // Notify parent (Navbar) about login success
+      onLoginSuccess?.(user);
+
+      // Close login modal
+      setShowLogin(false);
+    } catch (err) {
+      alert(err.response?.data?.message || "Login failed");
     }
-    alert(`Demo sign in with ${email}`);
-  }
+  };
 
   return (
     <>
-      {/* Login Box */}
-      <div className="fixed inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white/90 backdrop-blur rounded-2xl shadow-xl border border-[#FFD9B8]">
-          <div className="p-8">
-            {/* Logo + Title */}
+      {/* LOGIN MODAL */}
+      {showLogin && (
+        <div
+          className="fixed inset-0 z-40 flex items-center justify-center bg-black/20 backdrop-blur-sm"
+          onClick={() => {
+            setShowLogin(false);
+            setShowSignup(false);
+            document.body.style.overflow = "auto";
+          }}
+        >
+          <div
+            className="w-full max-w-md bg-white/90 backdrop-blur rounded-2xl shadow-xl border border-[#FFD9B8] p-8 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
             <div className="flex flex-col items-center gap-3 mb-4">
               <h1 className="text-2xl font-semibold bg-gradient-to-r from-[#EAAC8B] to-[#423127] bg-clip-text text-transparent">
                 BeautyGlow
@@ -41,9 +67,8 @@ export default function Login() {
               </p>
             </div>
 
-            {/* Form */}
+            {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Email
@@ -58,7 +83,6 @@ export default function Login() {
                 />
               </div>
 
-              {/* Password */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Password
@@ -82,7 +106,6 @@ export default function Login() {
                 </div>
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-[#EAAC8B] hover:bg-[#FFD899] text-white hover:text-gray-800 rounded-lg py-3 font-medium shadow-sm transition"
@@ -94,9 +117,12 @@ export default function Login() {
             {/* Footer */}
             <div className="mt-5 text-center text-sm text-gray-600">
               <p>
-                Don't have an account?{" "}
+                Don’t have an account?{" "}
                 <button
-                  onClick={() => setShowSignup(true)}
+                  onClick={() => {
+                    setShowSignup(true);
+                    setShowLogin(false);
+                  }}
                   className="text-[#EAAC8B] font-medium underline"
                 >
                   Create New Account
@@ -105,21 +131,27 @@ export default function Login() {
             </div>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Signup Modal */}
+      {/* SIGNUP MODAL */}
       {showSignup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Background blur */}
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-blue-300/30 backdrop-blur-md"
+          onClick={() => {
+            setShowSignup(false);
+            setShowLogin(false);
+            document.body.style.overflow = "auto";
+          }}
+        >
           <div
-            className="absolute inset-0 bg-blue-300/30 backdrop-blur-md"
-            onClick={() => setShowSignup(false)}
-          ></div>
-
-          {/* Signup form */}
-          <div className="relative z-10 max-h-[90vh] overflow-y-auto">
+            className="relative z-10 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Signup
-              switchToLogin={() => setShowSignup(false)} // pass prop to switch back
+              switchToLogin={() => {
+                setShowSignup(false);
+                setShowLogin(true);
+              }}
             />
           </div>
         </div>
